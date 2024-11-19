@@ -3,7 +3,7 @@
 jetson-nano setting
 -------------------
 
-#SD Card prepare
+### SD Card prepare
 1. Download the Jetson Nano Developer Kit SD Card Image.
    -https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write
 2. Format microSD card using SD Memory Card Formatter from the SD Association.
@@ -20,7 +20,7 @@ jetson-nano setting
    -Click “Select drive” and choose the correct device.
    -Click “Flash!” It will take Etcher about 10 minutes to write and validate the image
 
-#Boot 
+# Boot 
 
 -Connect the USB keyboard and mouse
 -Connect Monitor
