@@ -8,7 +8,7 @@ jetson-nano setting
    - https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write
 2. Format microSD card using SD Memory Card Formatter from the SD Association.
    - Download SD Memory Card Formatter
-     \n https://www.sdcard.org/downloads/formatter/sd-memory-card-formatter-for-windows-download/
+     https://www.sdcard.org/downloads/formatter/sd-memory-card-formatter-for-windows-download/
    - Select card drive
    - Select “Quick format”
    - Leave “Volume label” blank
@@ -26,5 +26,32 @@ jetson-nano setting
 - Connect Monitor
 - Network Dongle
 - Insert the microSD card into the slot on the underside of the Jetson Nano module.
+- Connect your Micro-USB power supply 
 
 # Setup
+
+- Select system language, keyboard layout
+- Connect Wi-Fi Network
+- Time zone: Seoul
+- Create username, password
+     -name: dli , Password: dli
+- Click all Continue, Next 
+
+# Setup Hangul
+
+- Terminal
+```
+sudo apt-get update
+sudo apt-get install fcitx-hangul
+reboot
+```
+- Setting -> Region& Language ->  Manage installed Language
+
+- Applying changes 
+- In Language Support, Change Keyboard input method system: fcitx
+- Reboot the system
+- 우상단 keyboard icon -> Configure
+- Input Method Configuration - 하단 '+'
+- Add input method - check 해제 Only Show Current Language
+- search 'hangul' and click
+- 
