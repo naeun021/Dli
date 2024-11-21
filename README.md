@@ -68,6 +68,33 @@ Headless Mode 메모리가 모자라서 가상 땡겨와,  메모리 연결하�
 141 를Headless Mode를 gui로 돌아옴
 도커설치..? 136 docker설치 코랩으로 넘어가 (저번시간에 한거임)
 
+```
+dli@dli-desktop:~$ sudo docker run --runtime nvidia -it --rm --network host \
+>     --memory=500M --memory-swap=4G \
+>     --volume ~/nvdli-data:/nvdli-nano/data \
+>     --volume /tmp/argus_socket:/tmp/argus_socket \
+>     --device /dev/video0 \
+>     nvcr.io/nvidia/dli/dli-nano-ai:v2.0.2-r32.7.1kr
+[sudo] password for dli: 
+allow 10 sec for JupyterLab to start @ http://192.168.137.221:8888 (password dlinano)
+```
+Classification ->Classification -> code cell 실행 
+```
+from jetcam.usb_camera import USBCamera
+from jetcam.csi_camera import CSICamera
 
+# for USB Camera (Logitech C270 webcam), uncomment the following line
+camera = USBCamera(width=224, height=224, capture_device=0) # confirm the capture_device number
+
+# for CSI Camera (Raspberry Pi Camera Module V2), uncomment the following line
+# camera = CSICamera(width=224, height=224, capture_device=0) # confirm the capture_device number
+
+camera.running = True
+print("camera created")
+```
++카메라에 따라 usb, csi 카메라 선택
++category에 따라 이미지 수집
++epochs = 학습횟수 설정한 뒤 train
++prediction 값으로 분류
 
 
