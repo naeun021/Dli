@@ -67,6 +67,22 @@ Headless Mode
 Headless Mode 메모리가 모자라서 가상 땡겨와,  메모리 연결하면안나오고 검정화면, gui땡겨옴, 
 141 를Headless Mode를 gui로 돌아옴
 도커설치..? 136 docker설치 코랩으로 넘어가 (저번시간에 한거임)
+```
+sudo systemctl disable nvzramconfig
+
+sudo systemctl set-default multi-user.target
+
+sudo fallocate -l 18G /mnt/18GB.swap
+sudo chmod 600 /mnt/18GB.swap
+sudo mkswap /mnt/18GB.swap
+
+sudo su
+echo "/mnt/18GB.swap swap swap defaults 0 0" >> /etc/fstab
+exit
+
+sudo reboot
+```
++잿슨의 CPU가 4GB라 주피터를 실행할 수 없으므로 18GB로 바꿔줌 
 
 ```
 dli@dli-desktop:~$ sudo docker run --runtime nvidia -it --rm --network host \
@@ -92,9 +108,23 @@ camera = USBCamera(width=224, height=224, capture_device=0) # confirm the captur
 camera.running = True
 print("camera created")
 ```
-+카메라에 따라 usb, csi 카메라 선택
-+category에 따라 이미지 수집
++카메라 종류에 따라 usb, csi 카메라 선택
++category에 맞는 이미지 수집(add)
 +epochs = 학습횟수 설정한 뒤 train
 +prediction 값으로 분류
 
+
+다음주
+----
+gnd-연결
+선이 튀어 나옴 - 수전파선
+선이 없음 - 암전파선
+![beardbord](https://github.com/kimjome/Dli/issues/1#issue-2679251832.png)
+빨간색 선과 파란색 선은 옆으로 흐름 5볼트
+가운데는 전기가 흐르지 않음 전파선 연결하면 가로로 한 줄 다 흐름
+미니판은 빨간색 파란색 선이 없음
+
+# 아두이노
+젯슨나노볼트는 암페어
+아노이노.cc
 
