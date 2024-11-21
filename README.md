@@ -136,4 +136,9 @@ vin - 외부전원 들어올 수 있음
 gnd 2개 있음 마이너스(-)
 5볼트와 3.3볼트 있음
 sd카드에 
+```
+sudo apt-get update
+sudo apt-get install arduino
+```
+
 
