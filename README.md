@@ -55,3 +55,19 @@ reboot
 - Add input method - check 해제 Only Show Current Language
 - search 'hangul' and click
 - 
+
+
+
+3week
+=====
+Headless Mode
+-------
+# 
+
+Headless Mode 메모리가 모자라서 가상 땡겨와,  메모리 연결하면안나오고 검정화면, gui땡겨옴, 
+141 를Headless Mode를 gui로 돌아옴
+도커설치..? 136 docker설치 코랩으로 넘어가 (저번시간에 한거임)
+
+
+
+
