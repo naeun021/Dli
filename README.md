@@ -117,26 +117,26 @@ print("camera created")
 다음주
 ----
 gnd-연결
-선이 튀어 나옴 - 수전파선
-선이 없음 - 암전파선
+선이 튀어 나옴 - 수전파선   
+선이 없음 - 암전파선   
 ![image](https://github.com/user-attachments/assets/f3e61c03-0169-4026-92e8-f36ecb902e5b)
 ![beardbord](https://github.com/kimjome/Dli/issues/1#issue-2679251832.png)
-빨간색 선과 파란색 선은 옆으로 흐름 5볼트
-가운데는 전기가 흐르지 않음 전파선 연결하면 가로로 한 줄 다 흐름
-미니판은 빨간색 파란색 선이 없음
+빨간색 선과 파란색 선은 옆으로 흐름 5볼트   
+가운데는 전기가 흐르지 않음 전파선 연결하면 가로로 한 줄 다 흐름   
+미니판은 빨간색 파란색 선이 없음   
 
 # 아두이노
-젯슨나노볼트는 암페어
-Arduino.cc-Arduino Uno Rev3 사용
-젯슨에 선 연결해서 사용
-아날로그 값을 가져옴
-4번 5번이 통신을 주고 받을 때 씀
-0번 1번 시리얼 통신
-0번에서 13번까지 존재
-vin - 외부전원 들어올 수 있음
-gnd 2개 있음 마이너스(-)
-5볼트와 3.3볼트 있음
-sd카드에 
+젯슨나노볼트는 암페어   
+Arduino.cc-Arduino Uno Rev3 사용   
+젯슨에 선 연결해서 사용   
+아날로그 값을 가져옴   
+4번 5번이 통신을 주고 받을 때 씀   
+0번 1번 시리얼 통신   
+0번에서 13번까지 존재   
+vin - 외부전원 들어올 수 있음   
+gnd 2개 있음 마이너스(-)   
+5볼트와 3.3볼트 있음   
+sd카드에    
 ```
 sudo apt-get update
 sudo apt-get install arduino
