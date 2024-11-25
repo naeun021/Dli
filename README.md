@@ -89,6 +89,7 @@ $ nvgstcapture-1.0 --camsrc=0 --cap-dev-node=/dev/video0
 j   
 image Captured
 ```
+![KakaoTalk_20241114_214419656_02](https://github.com/user-attachments/assets/c3d1d9fe-dd9b-4add-b2e8-9e5ae608b37e)
 
 
 3week
