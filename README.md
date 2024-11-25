@@ -41,9 +41,9 @@ jetson-nano setting
 
 - Terminal
 ```
-sudo apt-get update
-sudo apt-get install fcitx-hangul
-reboot
+$ sudo apt-get update
+$ sudo apt-get install fcitx-hangul
+$ reboot
 ```
 - Setting -> Region& Language ->  Manage installed Language
 
@@ -62,26 +62,21 @@ reboot
 ---
 # 
 csi-camera
-- 카메라 인식 되는지 확인
 ```
-ls /dev/vi*
+# 카메라 인식 되는지 확인
+$ ls /dev/vi*
 /del/video0
-```
-```
-git clone https://github.com/jetsonhacks/CSI-Camera.git
-ls
-```
-```
+
+$git clone https://github.com/jetsonhacks/CSI-Camera.git
+$ls
 Desktop    Downloads         jetson-fan-ctl  Pictures  Templates   Videos
 Documents  examples.desktop  Music           Public    CSI-Camera
-```
-```
-cd CSI-Camera
-ls
-```
-```
+
+$ cd CSI-Camera
+$ ls
 face-detect-csi.py  LICENSE  README.md  csi-camera-gst.py  csi-camera-simple.py
 ```
+- 기본 카메라 실행
 ```
 python3 csi-camera-gst.py
 ```
@@ -89,11 +84,11 @@ python3 csi-camera-gst.py
 
 1.이미지 capture
 ```
-nvgstcapture-1.0 --camsrc=0 --cap-dev-node=/dev/video0
-```
+$ nvgstcapture-1.0 --camsrc=0 --cap-dev-node=/dev/video0
+#실행
 j   
 image Captured
-
+```
 
 
 3week
