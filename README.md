@@ -119,6 +119,7 @@ print("camera created")
 gnd-연결
 선이 튀어 나옴 - 수전파선
 선이 없음 - 암전파선
+![image](https://github.com/user-attachments/assets/f3e61c03-0169-4026-92e8-f36ecb902e5b)
 ![beardbord](https://github.com/kimjome/Dli/issues/1#issue-2679251832.png)
 빨간색 선과 파란색 선은 옆으로 흐름 5볼트
 가운데는 전기가 흐르지 않음 전파선 연결하면 가로로 한 줄 다 흐름
