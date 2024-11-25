@@ -126,7 +126,7 @@ JupterLab logging location:  /var/log/jupyter.log  (inside the container)
 
 Headless Mode: 메모리가 모자라서 가상 땡겨와,  메모리 연결하면안나오고 검정화면, gui땡겨옴, 
 141 를Headless Mode를 gui로 돌아옴
-도커설치..? 136 docker설치 코랩으로 넘어가 (저번시간에 한거임)
+도커설치 136 docker설치 코랩으로 넘어감 (저번시간에 한거임)
 ```
 sudo systemctl disable nvzramconfig
 
@@ -154,6 +154,7 @@ dli@dli-desktop:~$ sudo docker run --runtime nvidia -it --rm --network host \
 [sudo] password for dli: 
 allow 10 sec for JupyterLab to start @ http://192.168.137.221:8888 (password dlinano)
 ```
+![주피터](https://github.com/kimjome/Dli/issues/2#issue-2691085101)
 Classification ->Classification -> code cell 실행 
 ```
 from jetcam.usb_camera import USBCamera
@@ -172,7 +173,7 @@ print("camera created")
 +category에 맞는 이미지 수집(add)
 +epochs = 학습횟수 설정한 뒤 train
 +prediction 값으로 분류
-
+![얼굴인식](https://github.com/kimjome/Dli/issues/3#issue-2691086097)
 
 다음주
 ----
