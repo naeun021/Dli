@@ -54,7 +54,45 @@ reboot
 - Input Method Configuration - 하단 '+'
 - Add input method - check 해제 Only Show Current Language
 - search 'hangul' and click
-- 
+
+
+2week
+=====
+카메라
+---
+# 
+csi-camera
+- 카메라 인식 되는지 확인
+```
+ls /dev/vi*
+/del/video0
+```
+```
+git clone https://github.com/jetsonhacks/CSI-Camera.git
+ls
+```
+```
+Desktop    Downloads         jetson-fan-ctl  Pictures  Templates   Videos
+Documents  examples.desktop  Music           Public    CSI-Camera
+```
+```
+cd CSI-Camera
+ls
+```
+```
+face-detect-csi.py  LICENSE  README.md  csi-camera-gst.py  csi-camera-simple.py
+```
+```
+python3 csi-camera-gst.py
+```
+-카메라 켜진 사진
+
+1.이미지 capture
+```
+nvgstcapture-1.0 --camsrc=0 --cap-dev-node=/dev/video0
+```
+j   
+image Captured
 
 
 
@@ -63,8 +101,29 @@ reboot
 Headless Mode
 -------
 # 
+1.Docker 설치
+```
+#Add a data directory 
+mkdir -p ~/nvdli-data
+```
+```
+sudo docker run --runtime nvidia -it --rm --network host \
+    --memory=500M --memory-swap=4G \
+    --volume ~/nvdli-data:/nvdli-nano/data \
+    --volume /tmp/argus_socket:/tmp/argus_socket \
+    --device /dev/video0 \
+    nvcr.io/nvidia/dli/dli-nano-ai:v2.0.2-r32.7.1kr
+```
+- 다운로드 사진
+```
+ ./docker_dli_run.sh
+```
+```python
+Status: Downloaded newer image for nvcr.io/nvidia/dli/dli-nano-ai:v2.0.2-r32.6.1kr allow 10 sec for JupyterLab to start @ http://192.168.137.221:8888 (password dlinano)c932e62bbab: Waiting
+JupterLab logging location:  /var/log/jupyter.log  (inside the container)
+```
 
-Headless Mode 메모리가 모자라서 가상 땡겨와,  메모리 연결하면안나오고 검정화면, gui땡겨옴, 
+Headless Mode: 메모리가 모자라서 가상 땡겨와,  메모리 연결하면안나오고 검정화면, gui땡겨옴, 
 141 를Headless Mode를 gui로 돌아옴
 도커설치..? 136 docker설치 코랩으로 넘어가 (저번시간에 한거임)
 ```
