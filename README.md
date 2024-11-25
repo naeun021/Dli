@@ -31,11 +31,16 @@ jetson-nano setting
 # Setup
 
 - Select system language, keyboard layout
+![KakaoTalk_20241107_205552851](https://github.com/user-attachments/assets/9d419246-d2a2-4f26-ac6f-22e1f7110cd8)
 - Connect Wi-Fi Network
+![KakaoTalk_20241107_205552851_01](https://github.com/user-attachments/assets/82377b0d-8ee7-47fb-8df1-e275c9e09666)
 - Time zone: Seoul
+![KakaoTalk_20241107_205552851_03](https://github.com/user-attachments/assets/d52b921c-72c5-443a-bf82-cd1c672c9a00)
 - Create username, password
      -name: dli , Password: dli
-- Click all Continue, Next 
+- Click all Continue, Next
+![KakaoTalk_20241107_205552851_06](https://github.com/user-attachments/assets/deaa7488-0165-445c-aa28-e9309353a83b)
+![KakaoTalk_20241107_205552851_07](https://github.com/user-attachments/assets/11a68cc5-2f1a-43a6-8140-990fa9c0f4c4)
 
 # Setup Hangul
 
