@@ -169,6 +169,7 @@ camera.running = True
 print("camera created")
 ```
 +카메라 종류에 따라 usb, csi 카메라 선택
+![KakaoTalk_20241126_000218340_01](https://github.com/user-attachments/assets/6e867213-992a-406c-b4bb-c605780bc64d)
 +category에 맞는 이미지 수집(add)
 +epochs = 학습횟수 설정한 뒤 train
 +prediction 값으로 분류
