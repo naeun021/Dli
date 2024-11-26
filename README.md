@@ -61,8 +61,7 @@ $ reboot
 
 2week
 =====
-Camera
----
+# Camera
 ## csi-camera
 1. Camera setting
 ```
@@ -84,7 +83,7 @@ face-detect-csi.py  LICENSE  README.md  csi-camera-gst.py  csi-camera-simple.py
 python3 csi-camera-gst.py
 ```
 -카메라 켜진 사진
-
+## 카메라 동작
 1. Image capture
 ```
 $ nvgstcapture-1.0 --camsrc=0 --cap-dev-node=/dev/video0
@@ -93,12 +92,11 @@ j   #j Enter
 image Captured
 ```
 ![KakaoTalk_20241114_214419656_02](https://github.com/user-attachments/assets/c3d1d9fe-dd9b-4add-b2e8-9e5ae608b37e)
-
+2. 얼굴 인식
 
 3week
 =====
-Headless Mode
--------
+# Image Classification
 ## Docker
 Docker streamlines the development lifecycle by allowing developers to work in standardized environments using local containers which provide your applications and services. [Docker](https://docs.docker.com/get-started/docker-overview/,"docker link")   
 *->Docker allows you to run one coding from Jupiter on jetson*
@@ -163,17 +161,16 @@ __http://192.168.137.221:8888__ <- Click link, 'open link' click
 ### JupyterLab interface
 ![KakaoTalk_20241126_000218340_01](https://github.com/user-attachments/assets/6e867213-992a-406c-b4bb-c605780bc64d)
 
-# Image Classification Project
+## Image Classification Project
 Build an image classification project that can determine the meaning of hand signals (thumbs-up or thumbs-down)
 1. Open the Notebook
 JupyterLab interface: dashboard that provides access to the Jupyter interactive notebooks
 - a directory tree in the left sidebar   
-### Classification folder in JupyterLab interface -> Open ' classification_interactive.ipynb'
+__Classification folder in JupyterLab interface -> Open ' classification_interactive.ipynb'__
 
 2. Execute all of the code blocks
-
-   ### Select USB, CSI camera according to camera type
-camera type changes -> reboot
+__Select USB, CSI camera according to camera type__
+If camera type changes -> reboot
 ```
 from jetcam.usb_camera import USBCamera
 from jetcam.csi_camera import CSICamera
@@ -187,7 +184,7 @@ camera = USBCamera(width=224, height=224, capture_device=0) # confirm the captur
 camera.running = True
 print("camera created")
 ```
-   #### csi 카메라 오류
+   ### csi 카메라 오류
 CSI camera execution error in next cell
 ```
 
