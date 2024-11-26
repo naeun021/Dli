@@ -2,9 +2,9 @@
 ======
 # jetson-nano setting
 ## SD Card prepare
-1. Download the Jetson Nano Developer Kit SD Card Image. [SD Card Image](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write,"sd card image link")
+1. Download the Jetson Nano Developer Kit SD Card Image. [SD Card Image](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write, "sd card image link")
 2. Format microSD card using SD Memory Card Formatter from the SD Association.
-   - Download SD Memory Card Formatter [Formatter](https://www.sdcard.org/downloads/formatter/sd-memory-card-formatter-for-windows-download/,"formatter link)
+   - Download SD Memory Card Formatter. [Formatter](https://www.sdcard.org/downloads/formatter/sd-memory-card-formatter-for-windows-download/, "formatter link")
    - Select card drive
    - Select “Quick format”
    - Leave “Volume label” blank
