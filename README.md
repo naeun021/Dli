@@ -3,7 +3,7 @@
 jetson-nano setting
 -------------------
 
-# SD Card prepare
+## SD Card prepare
 1. Download the Jetson Nano Developer Kit SD Card Image.
    - https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write
 2. Format microSD card using SD Memory Card Formatter from the SD Association.
@@ -20,7 +20,7 @@ jetson-nano setting
    - Click “Select drive” and choose the correct device.
    - Click “Flash!” It will take Etcher about 10 minutes to write and validate the image
 
-# Boot 
+## Boot 
 
 - Connect the USB keyboard and mouse
 - Connect Monitor
@@ -28,7 +28,7 @@ jetson-nano setting
 - Insert the microSD card into the slot on the underside of the Jetson Nano module.
 - Connect your Micro-USB power supply 
 
-# Setup
+## Setup
 
 - Select system language, keyboard layout
 ![KakaoTalk_20241107_205552851](https://github.com/user-attachments/assets/9d419246-d2a2-4f26-ac6f-22e1f7110cd8)
@@ -42,7 +42,7 @@ jetson-nano setting
 ![KakaoTalk_20241107_205552851_06](https://github.com/user-attachments/assets/deaa7488-0165-445c-aa28-e9309353a83b)
 ![KakaoTalk_20241107_205552851_07](https://github.com/user-attachments/assets/11a68cc5-2f1a-43a6-8140-990fa9c0f4c4)
 
-# Setup Hangul
+## Setup Hangul
 
 - Terminal
 ```
@@ -63,12 +63,12 @@ $ reboot
 
 2week
 =====
-카메라
+Camera
 ---
-# 
-csi-camera
+## csi-camera
+1. Camera setting
 ```
-# 카메라 인식 되는지 확인
+#Check camera operation
 $ ls /dev/vi*
 /del/video0
 
@@ -81,17 +81,17 @@ $ cd CSI-Camera
 $ ls
 face-detect-csi.py  LICENSE  README.md  csi-camera-gst.py  csi-camera-simple.py
 ```
-- 기본 카메라 실행
+2. Open the camera
 ```
 python3 csi-camera-gst.py
 ```
 -카메라 켜진 사진
 
-1.이미지 capture
+1. Image capture
 ```
 $ nvgstcapture-1.0 --camsrc=0 --cap-dev-node=/dev/video0
-#실행
-j   
+#Camera running
+j   #j Enter
 image Captured
 ```
 ![KakaoTalk_20241114_214419656_02](https://github.com/user-attachments/assets/c3d1d9fe-dd9b-4add-b2e8-9e5ae608b37e)
@@ -101,13 +101,51 @@ image Captured
 =====
 Headless Mode
 -------
-# Headless Device Mode
-1.Docker 설치
+## Docker
+Docker streamlines the development lifecycle by allowing developers to work in standardized environments using local containers which provide your applications and services. [Docker](https://docs.docker.com/get-started/docker-overview/,"docker link")   
+*->Docker allows you to run one coding from Jupiter on jetson*
+### Docker 주요 기능 (적을지 말지 고민)
+1. ppt 126
+2. ..
+
+- Docker Install, Run 
 ```
-#Add a data directory 
-mkdir -p ~/nvdli-data
+$ mkdir -p ~/nvdli-data
+$ #!/bin/bash
+$ sudo docker run --runtime nvidia -it --rm --network host \
+    --memory=500M --memory-swap=4G \
+    --volume ~/nvdli-data:/nvdli-nano/data \
+    --volume /tmp/argus_socket:/tmp/argus_socket \
+    --device /dev/video0 \
+    nvcr.io/nvidia/dli/dli-nano-ai:v2.0.2-r32.7.1kr
+$./docker_dli_run.sh
+[sudo]password for dli: #dli
 ```
+![KakaoTalk_20241126_000218340](https://github.com/user-attachments/assets/71e7bf1e-93aa-4ac2-a4b0-4811feb0fe17)
+__Out of memory__
+jetson CPU is 4GB and can't run Jupiter -> 18GB swap
 ```
+$sudo systemctl disable nvzramconfig
+$sudo systemctl set-default multi-user.target
+$sudo fallocate -l 18G /mnt/18GB.swap
+$sudo chmod 600 /mnt/18GB.swap
+$sudo mkswap /mnt/18GB.swap
+
+$sudo su
+echo "/mnt/18GB.swap swap swap defaults 0 0" >> /etc/fstab
+exit
+
+$sudo reboot
+```
+_Return to gui mode_
+```
+$sudo systemctl set-default graphical.target
+$reboot
+```
+## Headless Mode
+No need to connect the monitor directly to the Jetson Nano, save memory resources
+```
+#Run the Docker container 
 sudo docker run --runtime nvidia -it --rm --network host \
     --memory=500M --memory-swap=4G \
     --volume ~/nvdli-data:/nvdli-nano/data \
@@ -115,47 +153,15 @@ sudo docker run --runtime nvidia -it --rm --network host \
     --device /dev/video0 \
     nvcr.io/nvidia/dli/dli-nano-ai:v2.0.2-r32.7.1kr
 ```
-![KakaoTalk_20241126_000218340](https://github.com/user-attachments/assets/71e7bf1e-93aa-4ac2-a4b0-4811feb0fe17)
+- Execution Results 
 ```
- ./docker_dli_run.sh
-```
-```python
 Status: Downloaded newer image for nvcr.io/nvidia/dli/dli-nano-ai:v2.0.2-r32.6.1kr allow 10 sec for JupyterLab to start @ http://192.168.137.221:8888 (password dlinano)c932e62bbab: Waiting
 JupterLab logging location:  /var/log/jupyter.log  (inside the container)
 ```
+__http://192.168.137.221:8888__ <- Click link, 'open link' click
 
-Headless Mode: 
-- Do not hook up a monitor directly to the Jetson Nano, conserves memory resources 
-- 메모리가 모자라서 가상 땡겨와,  메모리 연결하면안나오고 검정화면, gui땡겨옴, 
-141 를Headless Mode를 gui로 돌아옴
-도커설치..? 136 docker설치 코랩으로 넘어가 (저번시간에 한거임)
-```
-sudo systemctl disable nvzramconfig
 
-sudo systemctl set-default multi-user.target
-
-sudo fallocate -l 18G /mnt/18GB.swap
-sudo chmod 600 /mnt/18GB.swap
-sudo mkswap /mnt/18GB.swap
-
-sudo su
-echo "/mnt/18GB.swap swap swap defaults 0 0" >> /etc/fstab
-exit
-
-sudo reboot
-```
-+잿슨의 CPU가 4GB라 주피터를 실행할 수 없으므로 18GB로 바꿔줌 
-
-```
-dli@dli-desktop:~$ sudo docker run --runtime nvidia -it --rm --network host \
->     --memory=500M --memory-swap=4G \
->     --volume ~/nvdli-data:/nvdli-nano/data \
->     --volume /tmp/argus_socket:/tmp/argus_socket \
->     --device /dev/video0 \
->     nvcr.io/nvidia/dli/dli-nano-ai:v2.0.2-r32.7.1kr
-[sudo] password for dli: 
-allow 10 sec for JupyterLab to start @ http://192.168.137.221:8888 (password dlinano)
-```
+## Nupyter lab
 ### JupyterLab interface
 ![KakaoTalk_20241126_000218340_01](https://github.com/user-attachments/assets/6e867213-992a-406c-b4bb-c605780bc64d)
 
