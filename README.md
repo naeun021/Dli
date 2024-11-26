@@ -101,7 +101,7 @@ image Captured
 =====
 Headless Mode
 -------
-# 
+# Headless Device Mode
 1.Docker 설치
 ```
 #Add a data directory 
@@ -124,7 +124,9 @@ Status: Downloaded newer image for nvcr.io/nvidia/dli/dli-nano-ai:v2.0.2-r32.6.1
 JupterLab logging location:  /var/log/jupyter.log  (inside the container)
 ```
 
-Headless Mode: 메모리가 모자라서 가상 땡겨와,  메모리 연결하면안나오고 검정화면, gui땡겨옴, 
+Headless Mode: 
+- Do not hook up a monitor directly to the Jetson Nano, conserves memory resources 
+- 메모리가 모자라서 가상 땡겨와,  메모리 연결하면안나오고 검정화면, gui땡겨옴, 
 141 를Headless Mode를 gui로 돌아옴
 도커설치..? 136 docker설치 코랩으로 넘어가 (저번시간에 한거임)
 ```
@@ -154,7 +156,20 @@ dli@dli-desktop:~$ sudo docker run --runtime nvidia -it --rm --network host \
 [sudo] password for dli: 
 allow 10 sec for JupyterLab to start @ http://192.168.137.221:8888 (password dlinano)
 ```
-Classification ->Classification -> code cell 실행 
+### JupyterLab interface
+![KakaoTalk_20241126_000218340_01](https://github.com/user-attachments/assets/6e867213-992a-406c-b4bb-c605780bc64d)
+
+# Image Classification Project
+Build an image classification project that can determine the meaning of hand signals (thumbs-up or thumbs-down)
+1. Open the Notebook
+JupyterLab interface: dashboard that provides access to the Jupyter interactive notebooks
+- a directory tree in the left sidebar   
+### Classification folder in JupyterLab interface -> Open ' classification_interactive.ipynb'
+
+2. Execute all of the code blocks
+
+   ### Select USB, CSI camera according to camera type
+camera type changes -> reboot
 ```
 from jetcam.usb_camera import USBCamera
 from jetcam.csi_camera import CSICamera
@@ -168,7 +183,14 @@ camera = USBCamera(width=224, height=224, capture_device=0) # confirm the captur
 camera.running = True
 print("camera created")
 ```
-+카메라 종류에 따라 usb, csi 카메라 선택
+   #### csi 카메라 오류
+CSI camera execution error in next cell
+```
+
+```
+-> Replaced with USB camera, solved by rebooting.
+
+3. Collect Initial Data
 ![KakaoTalk_20241126_000218340_01](https://github.com/user-attachments/assets/6e867213-992a-406c-b4bb-c605780bc64d)
 +category에 맞는 이미지 수집(add)
 +epochs = 학습횟수 설정한 뒤 train
