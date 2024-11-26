@@ -1,8 +1,6 @@
 1 week
 ======
-jetson-nano setting
--------------------
-
+# jetson-nano setting
 ## SD Card prepare
 1. Download the Jetson Nano Developer Kit SD Card Image.
    - https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write
@@ -122,7 +120,7 @@ $./docker_dli_run.sh
 [sudo]password for dli: #dli
 ```
 ![KakaoTalk_20241126_000218340](https://github.com/user-attachments/assets/71e7bf1e-93aa-4ac2-a4b0-4811feb0fe17)
-__Out of memory__
+__Out of memory__   
 jetson CPU is 4GB and can't run Jupiter -> 18GB swap
 ```
 $sudo systemctl disable nvzramconfig
