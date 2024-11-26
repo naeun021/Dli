@@ -10,8 +10,7 @@
    - Leave “Volume label” blank
    - Click “Format” to start formatting, and “Yes” on the warning dialog
 3. Write the image to microSD card 
-   - Download Etcher   
-     https://www.balena.io/etcher
+   - Download [Etcher](https://www.balena.io/etcher, "etcher link")
    - Click “Select image” and choose the zipped image file downloaded earlier.
    - Click “Select drive” and choose the correct device.
    - Click “Flash!” It will take Etcher about 10 minutes to write and validate the image
@@ -96,7 +95,7 @@ image Captured
 =====
 # Image Classification
 ## Docker
-Docker streamlines the development lifecycle by allowing developers to work in standardized environments using local containers which provide your applications and services. [Docker](https://docs.docker.com/get-started/docker-overview/,"docker link")   
+Docker streamlines the development lifecycle by allowing developers to work in standardized environments using local containers which provide your applications and services. [Docker](https://docs.docker.com/get-started/docker-overview/, "docker link")   
 *->Docker allows you to run one coding from Jupiter on jetson*
 ### Docker 주요 기능 (적을지 말지 고민)
 1. ppt 126
