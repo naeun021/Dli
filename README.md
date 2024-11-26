@@ -115,7 +115,7 @@ sudo docker run --runtime nvidia -it --rm --network host \
     --device /dev/video0 \
     nvcr.io/nvidia/dli/dli-nano-ai:v2.0.2-r32.7.1kr
 ```
-- 다운로드 사진
+![KakaoTalk_20241126_000218340](https://github.com/user-attachments/assets/71e7bf1e-93aa-4ac2-a4b0-4811feb0fe17)
 ```
  ./docker_dli_run.sh
 ```
