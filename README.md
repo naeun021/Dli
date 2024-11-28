@@ -154,7 +154,7 @@ dli@dli-desktop:~$ sudo docker run --runtime nvidia -it --rm --network host \
 [sudo] password for dli: 
 allow 10 sec for JupyterLab to start @ http://192.168.137.221:8888 (password dlinano)
 ```
-![주피터](https://github.com/kimjome/Dli/issues/2#issue-2691085101)
+![KakaoTalk_20241126_000218340](https://github.com/user-attachments/assets/71e7bf1e-93aa-4ac2-a4b0-4811feb0fe17)
 Classification ->Classification -> code cell 실행 
 ```
 from jetcam.usb_camera import USBCamera
@@ -173,7 +173,7 @@ print("camera created")
 +category에 맞는 이미지 수집(add)
 +epochs = 학습횟수 설정한 뒤 train
 +prediction 값으로 분류
-![얼굴인식](https://github.com/kimjome/Dli/issues/3#issue-2691086097)
+![KakaoTalk_20241126_000218340_01](https://github.com/user-attachments/assets/6e867213-992a-406c-b4bb-c605780bc64d)
 
 다음주
 ----
