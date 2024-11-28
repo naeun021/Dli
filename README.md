@@ -202,5 +202,14 @@ sd카드에
 sudo apt-get update
 sudo apt-get install arduino
 ```
+===
+Week 4
+아두이노에 들어감
+led_builtin은 output으로 정의한다 보통 핀 번호 13에 연결되어 있음.
+void loop: 컴퓨터는 0.1만 알아서 high 아님 low
+dela(100) : 100마이크로동안 하겠다(?)
+tool을 열면 보드 이름과 코트 이름이 나옴 - 우리는 아두이노 우노
+포트 : COM1, COM2 꼭 연결이 되어야 함
+
 
 
