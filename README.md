@@ -152,8 +152,7 @@ __http://192.168.137.221:8888__ <- Click link, 'open link' click
 
 ## Nupyter lab
 ### JupyterLab interface
-![KakaoTalk_20241126_000218340_01](https://github.com/user-attachments/assets/6e867213-992a-406c-b4bb-c605780bc64d)
-
+![KakaoTalk_20241126_000218340](https://github.com/user-attachments/assets/71e7bf1e-93aa-4ac2-a4b0-4811feb0fe17)
 ## Image Classification Project
 Build an image classification project that can determine the meaning of hand signals (thumbs-up or thumbs-down)
 1. Open the Notebook
