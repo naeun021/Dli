@@ -210,7 +210,8 @@ sudo apt-get install arduino
 - led_builtin은 output으로 정의함
 - 보통 핀 번호 13에 연결되어 있음.
 - void loop: 컴퓨터는 0.1로 이진법이므로 'high' or 'low'만으로 인식할 수 있음
-- dela(100) : 괄호 안의 숫자를 늘리면 깜빡이는 시간이 느려짐
+- delay(100) : 괄호 안의 숫자를 늘리면 깜빡이는 시간이 느려짐
+ ![KakaoTalk_20241130_222648357](https://github.com/user-attachments/assets/19430c6d-ddc3-4c61-9fd2-e9b4e340a673)
 - led 핀의 긴 다리를 12번에 짧은 다리를 gnd에 연결하기
 - led=12 로 하거나 pinMode(led, OUTPUT); 로 바꾸기
   
@@ -224,9 +225,10 @@ sudo apt-get install arduino
 - input으로 핀에서 데이터를 받아옴 -> 아두이노에서 센서값을 가져옴
 - serial.begin(9600) : 통신속도가 9600이라는 뜻
 - 미세먼지 센서 출력값(a,b,c)
-  a: Lowpulseoccupancy (LPO time): 측정된 시간 동안 센서가 낮은 펄스 신호를 감지한 총 시간
-  b: Ratio : LPO time이 전체 샘플링 시간에서 차지하는 비율
-  c: concentration : LPO time을 기반으로 계산된 농도값 일반적으로 (μg/m³)
+![KakaoTalk_20241130_222648357_01](https://github.com/user-attachments/assets/b54b6693-fa36-4522-a86f-008717a1dff6)
+- a: Lowpulseoccupancy (LPO time): 측정된 시간 동안 센서가 낮은 펄스 신호를 감지한 총 시간
+- b: Ratio : LPO time이 전체 샘플링 시간에서 차지하는 비율
+- c: concentration : LPO time을 기반으로 계산된 농도값 일반적으로 (μg/m³)
 
 ```
 int pin = 8;
@@ -288,6 +290,7 @@ void loop()
     }
 }
 ```
+![KakaoTalk_20241130_222648357_02](https://github.com/user-attachments/assets/a898ed96-d3b1-40bc-b6ea-ae7c0b64653e)
 
 
 
