@@ -295,7 +295,7 @@ void loop()
 5 week
 ======
 
-# Function calling via terminal
+# Function calling
 - **Function calling**: The process of calling a defined function (or method) to perform a particular task in programming
 - How to use Function calling
 - ## 1. Define a function
