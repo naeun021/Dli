@@ -292,6 +292,150 @@ void loop()
 ```
 ![KakaoTalk_20241130_222648357_02](https://github.com/user-attachments/assets/a898ed96-d3b1-40bc-b6ea-ae7c0b64653e)
 
+5 week
+======
+
+# Function calling via terminal
+- **Function calling**: The process of calling a defined function (or method) to perform a particular task in programming
+- How to use Function calling
+- ## 1. Define a function
+  input: fruit name, output : fruit's price
+```
+def get_fruit_price(fruit_name):
+    fruit_prices = {
+        '사과': '1000',
+        '바나나': '500',
+        '오렌지': '750',
+        '배': '800'
+    }
+    if fruit_name in fruit_prices:
+        return fruit_prices[fruit_name]
+```
+- ## 2. Create a description of the function
+```
+use_functions = [
+    {
+        "type": "function",
+        "function": {
+            "name": "get_fruit_price",
+            "description": "Returns the current price of the specified fruit.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "fruit_name": {
+                        "type": "string",
+                        "description": "The name of the fruit to retrieve the price for (e.g., '사과', '바나나')."
+                    }
+                },
+                "required": ["fruit_name"]
+            }
+        }
+    }
+]
+```
+- ## 3. Ask GPT to figure out which function to call
+   response_message : It tells you which function to use as which factor to call
+```
+messages = [
+{"role": "system", "content": "You are a helpful assistant. Use the supplied tools to retrieve fruit prices for the user."},
+{"role": "user", "content": "Hi, can you tell me the price of 3 apples?"}
+]
+
+client = OpenAI()
+
+response = client.chat.completions.create(
+model="gpt-4o-mini",
+messages=messages,
+tools=use_functions
+)
+
+response_message = response.choices[0].message
+tool_calls = response_message.tool_calls
+```
+- ## 4. Run the function
+```
+proc_messages = []
+
+if tool_calls:
+    available_functions = {
+        "get_fruit_price": get_fruit_price
+    }
+    for tool_call in tool_calls:
+        messages.append(response_message)  # extend conversation with assistant's reply
+        function_name = tool_call.function.name
+        function_to_call = available_functions[function_name]
+        function_args = json.loads(tool_call.function.arguments)
+
+        function_response = function_to_call(**function_args)
+
+        proc_messages.append(
+                {
+                    "tool_call_id": tool_call.id,
+                    "role": "tool",
+                    "name": function_name,
+                    "content": function_response,
+                }
+            )  # extend conversation with function response
+        messages += proc_messages
+```
+- ## 5. Second call
+```
+    second_response = client.chat.completions.create(
+            model='gpt-4o-mini',
+            messages=messages,
+        )
+```
+# Open API
+Create a chatbot that informs you of the current weather using the weather API
+input: area, putput: Current weather, temperature, humidity
+- ## 1. Define a function
+```
+## 함수 정의
+
+def get_current_weather(city):
+    key = '1200913362259bf0f6f6aca9a206894a'
+    api = f"http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=5&appid={key}"
+    location = requests.get(api)
+    location = json.loads(location.text)
+    print(location)
+
+    lat = location[0]['lat']
+    lon = location[0]['lon']
+
+    location_api = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={key}"
+    result = requests.get(location_api)
+    result = json.loads(result.text)
+
+    weather = result['weather'][0]['main']
+    temp = result['main']['temp']
+    temp = round(temp - 273.15, 2)
+    hum = result['main']['humidity']
+    return str({'condition': {weather}, 'temperature':{temp}, 'humidity':{hum}})
+```
+## 2. Add 'get_current_weather'
+```
+## 함수 묘사
+
+use_functions = [
+        {
+        "type": "function",
+        "function": {
+            "name": "get_current_weather",
+            "description": "Retrieve the current weather information for a specified city. The function returns the weather description, temperature in Celsius, and humidity percentage. The function type is tuple like (weather description, temperature, humidity)",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "city": {
+                        "type": "string",
+                        "description": "The name of the city to get the weather for."
+                    }
+                },
+                "required": ["city"]
+            }
+        }
+    }
+]
+```
 
 
 
