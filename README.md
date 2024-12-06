@@ -326,10 +326,6 @@ void loop()
 ![KakaoTalk_20241130_222648357_02](https://github.com/user-attachments/assets/a898ed96-d3b1-40bc-b6ea-ae7c0b64653e)
 
 
-## **Light Sensor and LED Control**  
-- **LED_BUILTIN**: Defined as an output (commonly connected to pin **13**).  
-- **void loop**:
-- 
 5 week
 ======
 
